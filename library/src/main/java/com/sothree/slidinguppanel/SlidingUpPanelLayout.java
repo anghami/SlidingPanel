@@ -999,7 +999,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 // Then let the child handle it.
                 if (mScrollableViewHelper.getScrollableViewScrollPosition(mScrollableView, mIsSlidingUp) > 0) {
                     mIsScrollableViewHandlingTouch = true;
-                    Log.v("awslog", TAG + "dispatchTouchEvent() called view is not under  Is the child less than fully scrolled");
+                    Log.v("awslog", TAG + "dispatchTouchEvent() called the child less than fully scrolled");
                     return super.dispatchTouchEvent(ev);
                 }
 
