@@ -24,13 +24,18 @@ If you are using the library and you would like to have your app listed, simply 
 
 Simply add the following dependency to your `build.gradle` file to use the latest version:
 
-```groovy
-dependencies {
-    repositories {
-        mavenCentral()
-    }
-    compile 'com.sothree.slidinguppanel:library:3.4.0'
+```gradle
+allprojects {
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
 }
+
+dependencies {
+   compile 'com.github.anghami:SlidingPanel:A3.3.1'
+}
+
 ```
 
 ### Usage
