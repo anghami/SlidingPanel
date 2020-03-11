@@ -977,7 +977,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
             mPrevMotionX = x;
             mPrevMotionY = y;
 
-            if (Math.abs(dx) > Math.abs(dy)*10) {
+            if (Math.abs(dx) > Math.abs(dy)*2) {
                 // Scrolling horizontally, so ignore
                 return super.dispatchTouchEvent(ev);
             }
