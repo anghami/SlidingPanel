@@ -979,7 +979,13 @@ public class SlidingUpPanelLayout extends ViewGroup {
             mPrevMotionX = x;
             mPrevMotionY = y;
 
-            Log.v("awslog", TAG + "dispatchTouchEvent() called Math.abs(dx) : "+Math.abs(dx)+"   Math.abs(dy): "+Math.abs(dy));
+            Log.v("awslog", TAG + "dispatchTouchEvent() called " +
+                "Math.abs(dx) : " + Math.abs(dx) +
+                "   Math.abs(dy): " + Math.abs(dy) +
+                " mIsSlidingUp : " + mIsSlidingUp +
+                "   dx : "+dx +
+                "   dy : "+dy
+            );
             if (((Math.abs(dx) > Math.abs(dy) && mScrollableView == null)) || Math.abs(dx) > Math.abs(dy)*10) {
                 Log.v("awslog", TAG + "dispatchTouchEvent() called ignored");
                 // Scrolling horizontally, so ignore
@@ -995,6 +1001,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
 
             // Which direction (up or down) is the drag moving?
             if (dy * (mIsSlidingUp ? 1 : -1) > 0) { // Collapsing
+                Log.v("awslog", TAG + "dispatchTouchEvent() called ");
                 // Is the child less than fully scrolled?
                 // Then let the child handle it.
                 if (mScrollableViewHelper.getScrollableViewScrollPosition(mScrollableView, mIsSlidingUp) > 0) {
@@ -1007,6 +1014,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 // Then we need to rejigger things so that the
                 // drag panel gets a proper down event.
                 if (mIsScrollableViewHandlingTouch) {
+                    Log.v("awslog", TAG + "dispatchTouchEvent() called mIsScrollableViewHandlingTouch : "+mIsScrollableViewHandlingTouch);
                     // Send an 'UP' event to the child.
                     MotionEvent up = MotionEvent.obtain(ev);
                     up.setAction(MotionEvent.ACTION_CANCEL);
