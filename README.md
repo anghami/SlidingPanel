@@ -1,4 +1,4 @@
-[![](https://jitpack.io/v/anghami/badge.svg)](https://jitpack.io/#anghami/sliding_panel)
+[![](https://jitpack.io/v/anghami/SlidingPlanel.svg)](https://jitpack.io/#anghami/SlidingPlanel)
 [![Badge](http://www.libtastic.com/static/osbadges/30.png)](http://www.libtastic.com/technology/30/)
 
 **Note:** we are **not** actively responding to issues right now. If you find a bug, please submit a PR. 
