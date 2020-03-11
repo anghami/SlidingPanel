@@ -1,4 +1,5 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.sothree.slidinguppanel/library/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.sothree.slidinguppanel/library)
+(https://maven-badges.herokuapp.com/maven-central/com.sothree.slidinguppanel/library)
+[![](https://jitpack.io/v/anghami/SlidinngPanel.svg)](https://jitpack.io/#anghami/SlidinngPanel)
 [![Badge](http://www.libtastic.com/static/osbadges/30.png)](http://www.libtastic.com/technology/30/)
 
 **Note:** we are **not** actively responding to issues right now. If you find a bug, please submit a PR. 
