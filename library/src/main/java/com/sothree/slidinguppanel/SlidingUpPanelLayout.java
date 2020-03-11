@@ -989,6 +989,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
             // If the scroll view isn't under the touch, pass the
             // event along to the dragView.
             if (!isViewUnder(mScrollableView, (int) mInitialMotionX, (int) mInitialMotionY)) {
+                Log.v("awslog", TAG + "dispatchTouchEvent() called view is not under");
                 return super.dispatchTouchEvent(ev);
             }
 
@@ -998,6 +999,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 // Then let the child handle it.
                 if (mScrollableViewHelper.getScrollableViewScrollPosition(mScrollableView, mIsSlidingUp) > 0) {
                     mIsScrollableViewHandlingTouch = true;
+                    Log.v("awslog", TAG + "dispatchTouchEvent() called view is not under  Is the child less than fully scrolled");
                     return super.dispatchTouchEvent(ev);
                 }
 
@@ -1017,12 +1019,14 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 }
 
                 mIsScrollableViewHandlingTouch = false;
+                Log.v("awslog", TAG + "dispatchTouchEvent() called return this.touch");
                 return this.onTouchEvent(ev);
             } else if (dy * (mIsSlidingUp ? 1 : -1) < 0) { // Expanding
                 // Is the panel less than fully expanded?
                 // Then we'll handle the drag here.
                 if (mSlideOffset < 1.0f) {
                     mIsScrollableViewHandlingTouch = false;
+                    Log.v("awslog", TAG + "dispatchTouchEvent() called return this.touch2");
                     return this.onTouchEvent(ev);
                 }
 
@@ -1035,9 +1039,11 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 }
 
                 mIsScrollableViewHandlingTouch = true;
+                Log.v("awslog", TAG + "dispatchTouchEvent() called return super.dispatchTouchEvent");
                 return super.dispatchTouchEvent(ev);
             }
         } else if (action == MotionEvent.ACTION_UP) {
+            Log.v("awslog", TAG + "dispatchTouchEvent() called ACTION_UP");
             // If the scrollable view was handling the touch and we receive an up
             // we want to clear any previous dragging state so we don't intercept a touch stream accidentally
             if (mIsScrollableViewHandlingTouch) {
