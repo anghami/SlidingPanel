@@ -968,6 +968,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
         final float y = ev.getY();
 
         if (action == MotionEvent.ACTION_DOWN) {
+            Log.v("awslog", TAG + "dispatchTouchEvent() called x : "+x+"    y: "+y);
             mIsScrollableViewHandlingTouch = false;
             mPrevMotionX = x;
             mPrevMotionY = y;
@@ -977,7 +978,9 @@ public class SlidingUpPanelLayout extends ViewGroup {
             mPrevMotionX = x;
             mPrevMotionY = y;
 
-            if (Math.abs(dx) > Math.abs(dy)*2) {
+            Log.v("awslog", TAG + "dispatchTouchEvent() called Math.abs(dx) : "+Math.abs(dx)+"   Math.abs(dy): "+Math.abs(dy));
+            if (((Math.abs(dx) > Math.abs(dy) && mScrollableView == null)) || Math.abs(dx) > Math.abs(dy)*10) {
+                Log.v("awslog", TAG + "dispatchTouchEvent() called ignored");
                 // Scrolling horizontally, so ignore
                 return super.dispatchTouchEvent(ev);
             }
