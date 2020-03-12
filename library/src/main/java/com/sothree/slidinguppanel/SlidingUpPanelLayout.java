@@ -1014,7 +1014,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 // Then we need to rejigger things so that the
                 // drag panel gets a proper down event.
                 if (mIsScrollableViewHandlingTouch) {
-                    Log.v("awslog", TAG + "dispatchTouchEvent() called mIsScrollableViewHandlingTouch : "+mIsScrollableViewHandlingTouch);
+                    Log.v("awslog", TAG + "dispatchTouchEvent() called mIsScrollableViewHandlingTouch");
                     // Send an 'UP' event to the child.
                     MotionEvent up = MotionEvent.obtain(ev);
                     up.setAction(MotionEvent.ACTION_CANCEL);
@@ -1042,6 +1042,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
                 // Then we need to rejigger things so that the
                 // child gets a proper down event.
                 if (!mIsScrollableViewHandlingTouch && mDragHelper.isDragging()) {
+                    Log.v("awslog", TAG + "dispatchTouchEvent() called mDragHelper.cancel()");
                     mDragHelper.cancel();
                     ev.setAction(MotionEvent.ACTION_DOWN);
                 }
@@ -1060,6 +1061,7 @@ public class SlidingUpPanelLayout extends ViewGroup {
         }
 
         // In all other cases, just let the default behavior take over.
+        Log.v("awslog", TAG + "dispatchTouchEvent() called default behavior taking over");
         return super.dispatchTouchEvent(ev);
     }
 
